@@ -1,0 +1,37 @@
+@mixin checkRadio () {
+    $width : 24px; $height: 24px; $bdw: 1px;
+
+    .radio , .radio-inline , .checkbox , .checkbox-inline {  overflow: hidden; margin: 0; padding: 0;
+        label.styled { position: relative; padding: 0; margin: 0; cursor: pointer;
+            input { }
+            span  { display: block; font: 14px $fr; color: $gri3; padding: 0 ($width + 12); line-height: $height;
+                a { color: #0061cf; border-bottom: 1px solid #0061cf; }
+            }
+            &:before { content: ''; position: absolute; top: 0; left: 0; width: $width; height: $height; background: #fff; border: $bdw solid darken($border, 10%); }
+        }
+        label.checked {
+            &:before { font-family: $fa; font-size: 14px; line-height: $height - ($bdw * 2); text-align: center; color: $turuncu1; border-color: $turuncu1; }
+        }
+        & + .raido { margin: 0; }
+    }
+    .radio , .radio-inline {
+        label.styled {
+            input { }
+            span  { }
+            &:before { border-radius: $width; }
+        }
+        label.checked {
+            &:before { content: '\f111'; }
+        }
+    }
+    .checkbox , .checkbox-inline {
+        label.styled {
+            input { }
+            span  { }
+            &:before { border-radius: $input-border-radius; }
+        }
+        label.checked {
+            &:before { content: '\f00c';}
+        }
+    }
+}
